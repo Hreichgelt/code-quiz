@@ -6,7 +6,7 @@ const questions = [
             1: "C++",
             2: "HTML",
             3: "CSS",
-            4: "Boolean"
+            4: "Boolean",
         },
         correct: "HTML",
     },
@@ -16,7 +16,7 @@ const questions = [
         answers: {
             1: "LS",
             2: "PWD",
-            3: "CD"
+            3: "CD",
             4: "CSS",
         },
         correct: "LS",
@@ -45,33 +45,45 @@ const questions = [
     },
 
     {
-        question5: "what language is used to create the structure of a webpage?",
+        question5: "which server is commonly used for collaborative projects?",
         answers: {
-            1: "C++",
-            2: "HTML",
-            3: "CSS",
-            4: "Boolean"
+            1: "W3Schools",
+            2: "Adobe Suite",
+            3: "GitLab",
+            4: "GitHub"
         },
-        correct: "HTML",
+        correct: "GitHub",
     },
 
 ]
     
-}
 
 
 
-var starter = "start";
-var quizy = "quiz";
-var endo = "end";
-var countDown = "clock"
-var highSchore = "High"
+// var starter = "start";
+// var quizy = "quiz";
+// var endo = "end";
+// var countDown = "clock"
+// var highSchore = "High"
 var starter = document.querySelector("#starter");
 var quizy = document.querySelector("#quizy");
 var endo = document.querySelector("#endo");
 var startButton = document.querySelector("#start-button")
 var countDown = document.querySelector("#clock")
 // do the same for quiz and end then create an event listener 
+
+
+// add event listeners down here for start button quiz and end 
+starter.addEventListener("click", function(){
+    clock();
+    renderQuestions(questions[0]);
+});
+
+quizy.addEventListener("click", function(){
+
+})
+
+
 
 function displayState() {
     if (state === "start") {
@@ -100,13 +112,3 @@ function displayState() {
     init()
 
 }
-
-// add event listeners down here for start button quiz and end 
-starter.addEventListener("click", function(){
-    time();
-    renderQuestions(questions[0]);
-});
-
-quizy.addEventListener("click", function(){
-
-})
