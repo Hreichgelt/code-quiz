@@ -1,5 +1,5 @@
 // add questions up here 
-const questions = [
+const quizQuestions = [
     {
         question1: "What language is used to create the structure of a webpage?",
         answers: {
@@ -56,33 +56,52 @@ const questions = [
     },
 
 ]
-    
-
-
 
 // var starter = "start";
 // var quizy = "quiz";
 // var endo = "end";
 // var countDown = "clock"
 // var highSchore = "High"
-var starter = document.querySelector("#starter");
-var quizy = document.querySelector("#quizy");
-var endo = document.querySelector("#endo");
-var startButton = document.querySelector("#start-button")
-var countDown = document.querySelector("#clock")
-// do the same for quiz and end then create an event listener 
+var starter = document.querySelector("#start-quiz");
+// var startButton = document.querySelector("#start-button")
+var questions = document.querySelector("#questions");
+var gameOver = document.querySelector("#endo");
+var countDown = document.querySelector("#clock");
+var response = document.querySelector("answers");
+var leaderBoard = document.querySelector("leaders");
+var points = document.querySelector("score");
+var secondsLeft = 50; 
+var events = [];
+var increase = 1;
 
-
-// add event listeners down here for start button quiz and end 
+// adding event listeners for start of quiz and timer
 starter.addEventListener("click", function(){
     clock();
     renderQuestions(questions[0]);
 });
 
-quizy.addEventListener("click", function(){
+questions.addEventListener("click", function(event){
+    if (increase === 5) {
+        response.textContent = "Well Done! Game Over";
+        points.textContent = secondsLeft
+    }   else if (
+        event.target.textContent !== quizQuestions[increase - 1].correct
+    ) {
+        response.textContent = "NOPE - WRONG";
+        secondsLeft -= 5;
+    } else {
+        response.textContent = "YUP -- RIGHT";
+        console.log(secondsLeft);
+        increase++;
+        renderQuestions(quizQuestions[increase])
+    }
+});
 
-})
+function renderQuestions(currentQuestion) {
+    questions.innerHTML = "";
 
+    
+}
 
 
 function displayState() {
