@@ -1,4 +1,6 @@
 // add questions up here 
+// use material from 05 sandbox image cycle and translate to this challenge
+// dont use jquery on this
 const quizQuestions = [
     {
         question: "What language is used to create the structure of a webpage?",
@@ -62,29 +64,31 @@ const quizQuestions = [
 // var endo = "end";
 // var countDown = "clock"
 // var highSchore = "High"
-var starter = document.querySelector("#start-quiz");
 // var startButton = document.querySelector("#start-button")
+var starter = document.querySelector("#start-quiz");
 var questions = document.querySelector("#questions");
 var gameOver = document.querySelector("#endo");
 var countDown = document.querySelector("#clock");
 var response = document.querySelector("#answers");
 var leaderBoard = document.querySelector("#leaders");
 var points = document.querySelector("#score");
-var secondsLeft = 50; 
+var submit = document.querySelector("#submit");
+var name = document.querySelector("#initials");
+var secondsLeft = 50;
 var events = [];
 var increase = 1;
 
 // adding event listeners for start of quiz and timer
-starter.addEventListener("click", function(){
-    // clock();
+starter.addEventListener("click", function () {
+    clock();
     renderQuestions(questions[0]);
 });
 
-questions.addEventListener("click", function(event){
+questions.addEventListener("click", function (event) {
     if (increase === 5) {
         response.textContent = "Well Done! Game Over";
         points.textContent = secondsLeft
-    }   else if (
+    } else if (
         event.target.textContent !== quizQuestions[increase - 1].correct
     ) {
         response.textContent = "NOPE - WRONG";
@@ -97,16 +101,49 @@ questions.addEventListener("click", function(event){
     }
 });
 
-function renderQuestions(currentQuestion) {
+function renderQuestions(currentQuest) {
     questions.textContent = quizQuestions[0].question;
     // Need to add questions to webpage using create element
-    // do we need more variables?
+    // adding questions to show on HTML
+    var questLab = document.createElement("div");
+    var options = document.createElement("ol");
+    var ans1 = document.createElement("li");
+    var ans2 = document.createElement("li");
+    var ans3 = document.createElement("li");
+    var ans4 = document.createElement("li");
+    var ans5 = document.createElement("li");
+
+    questLab.textContent = currentQuest.questions;
+    ans1.textContent = currentQuest.response[1];
+    ans2.textContent = currentQuest.response[2];
+    ans3.textContent = currentQuest.response[3];
+    ans4.textContent = currentQuest.response[4];
+    ans5.textContent = currentQuest.response[5];
+
+    questLab.textContent = currentQuest.questions;
+    ans1.textContent = currentQuest.answers[1];
+    ans2.textContent = currentQuest.answers[2];
+    ans3.textContent = currentQuest.answers[3];
+    ans4.textContent = currentQuest.answers[4];
+    ans5.textContent = currentQuest.answers[5];
+   
     // append child for questions 
     // create var that creates a button 
     // in onclick when choosing answer increment to next question 
     //  if they click the right answer it add points and moves to next screen 
+};
 
-}
+// adding timer function 
+function clock() {
+    var timer = setInterval(function () {
+        if (secondsLeft > 0) {
+        countDown.textContent = secondsLeft;
+        secondsLeft--;
+    } else {
+        clearInterval(timer);
+    }
+}, 1000);
+};
 
 
 // function displayState() {
