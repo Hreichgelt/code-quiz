@@ -1,7 +1,7 @@
 // add questions up here 
 const quizQuestions = [
     {
-        question1: "What language is used to create the structure of a webpage?",
+        question: "What language is used to create the structure of a webpage?",
         answers: {
             1: "C++",
             2: "HTML",
@@ -12,7 +12,7 @@ const quizQuestions = [
     },
 
     {
-        question2: "Which command in terminal/gitbash shows you accessible folders/files in a directory?",
+        question: "Which command in terminal/gitbash shows you accessible folders/files in a directory?",
         answers: {
             1: "LS",
             2: "PWD",
@@ -23,7 +23,7 @@ const quizQuestions = [
     },
 
     {
-        question3: "Which of the following can make up a string?",
+        question: "Which of the following can make up a string?",
         answers: {
             1: "Letters",
             2: "Numbers",
@@ -34,7 +34,7 @@ const quizQuestions = [
     },
 
     {
-        question4: "which of the following correctly represents a for-loop?",
+        question: "which of the following correctly represents a for-loop?",
         answers: {
             1: "for (let index = 0; index < array.length; index++) {const element = array[index];",
             2: "for (i = 0: y > array; i++) {const element - [i];",
@@ -45,7 +45,7 @@ const quizQuestions = [
     },
 
     {
-        question5: "which server is commonly used for collaborative projects?",
+        question: "which server is commonly used for collaborative projects?",
         answers: {
             1: "W3Schools",
             2: "Adobe Suite",
@@ -67,16 +67,16 @@ var starter = document.querySelector("#start-quiz");
 var questions = document.querySelector("#questions");
 var gameOver = document.querySelector("#endo");
 var countDown = document.querySelector("#clock");
-var response = document.querySelector("answers");
-var leaderBoard = document.querySelector("leaders");
-var points = document.querySelector("score");
+var response = document.querySelector("#answers");
+var leaderBoard = document.querySelector("#leaders");
+var points = document.querySelector("#score");
 var secondsLeft = 50; 
 var events = [];
 var increase = 1;
 
 // adding event listeners for start of quiz and timer
 starter.addEventListener("click", function(){
-    clock();
+    // clock();
     renderQuestions(questions[0]);
 });
 
@@ -98,36 +98,41 @@ questions.addEventListener("click", function(event){
 });
 
 function renderQuestions(currentQuestion) {
-    questions.innerHTML = "";
-
-    
-}
-
-
-function displayState() {
-    if (state === "start") {
-        starter.display = "block";
-        quizy.display = "none";
-        endo.display = "none";
-    }
-}
-function displayState() {
-    if (state === "quiz") {
-        starter.display = "none";
-        quizy.display = "block";
-        endo.display = "none";
-    }
-    function displayState() {
-        if (state === "end") {
-            starter.display = "none";
-            quizy.display = "none";
-            endo.display = "block";
-        }
-    }
-
-    function init() {
-        displayState();
-    }
-    init()
+    questions.textContent = quizQuestions[0].question;
+    // Need to add questions to webpage using create element
+    // do we need more variables?
+    // append child for questions 
+    // create var that creates a button 
+    // in onclick when choosing answer increment to next question 
+    //  if they click the right answer it add points and moves to next screen 
 
 }
+
+
+// function displayState() {
+//     if (state === "start") {
+//         starter.display = "block";
+//         quizy.display = "none";
+//         endo.display = "none";
+//     }
+// }
+// function displayState() {
+//     if (state === "quiz") {
+//         starter.display = "none";
+//         quizy.display = "block";
+//         endo.display = "none";
+//     }
+//     function displayState() {
+//         if (state === "end") {
+//             starter.display = "none";
+//             quizy.display = "none";
+//             endo.display = "block";
+//         }
+//     }
+
+//     function init() {
+//         displayState();
+//     }
+//     init()
+
+// }
