@@ -12,7 +12,7 @@
 // WHEN the game is over
 // THEN I can save my initials and my score
 
-// 1. build a button in html 
+// 1. build a button in html  
 // 2. Create a countdown
 // 3. create prompts 
 // 4. create if statements 
@@ -23,3 +23,5 @@
 // timer is in UNC... 09 Timers
 // event listeners - click buttuns are in 11
 // we only go up to lesson 14 so far
+
+<!-- going to have 3 screens start page, quiz flow, scores -->

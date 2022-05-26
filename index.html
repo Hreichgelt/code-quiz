@@ -1,36 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coding Quiz | Challenge </title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./Assets/style.css">
 </head>
+
 <body>
     <header>
         <h1>Code Quiz Challenge</h1>
     </header>
-        <section>
-            <p>Welcome to the Coding Quiz Challenge! This quiz will test your knowledge about coding. Answer each question as quickly as you can as you
-                will be on the clock. Note that for each question you get incorrect, 10 seconds and points will be taken from your total. You are able to 
-                test your knowledge as many ties are you like. 
-            </p>
-            <button class="button">Start Quiz</button>
-        </section>
-        <section>
-            <article class="timer">
-                time: 
-            <span class="time">0</span>
-            </article>
-        </section>
-        <section>
-            <article class="score">
-                score: 
-            <span class="score">0</span>
-            </article>
-        </section>
+    <div class="directions">
+        <p>Welcome to the Coding Quiz Challenge! This quiz will test your knowledge about coding. Answer each question
+            as quickly as you can as you
+            will be on the clock. Note that for each question you get incorrect, 10 seconds and points will be taken
+            from your total. You are able to
+            test your knowledge as many ties are you like.
+        </p>
+    </div>
 
-    <script src="./code-quiz/script.js"></script>
+    <!-- ......................................... -->
+
+    <div class="timer">
+            Time Remaining:<span class = "clock"> 50 </span>
+            <br><br>
+            <button class="starter" id="start-quiz">Start Quiz</button>
+    </div>
+
+<br><br>
+<br><br>
+
+    <!-- .............................................. -->
+
+    <div>
+        <!-- high scores instead of scores - create a new page -->
+        <!-- enter initials and hit submit it opens new page and local storage keeps scores -->
+        <form>
+            <div>score:<span id="score"></span> 0</div>
+            <br><br>
+            <label for="initials"></label>
+            <input type="text" name="name" id="initials" placeholder="initials"/>
+            <button id="submit">Submit</button>
+            <ol id="leaders"><span>
+                Leaders</span>
+            </ol>
+        </form>
+    </div>
+
+    <!-- .......................................... -->
+
+    <div class ="quizy">
+        <div id="questions"></div>
+
+        <div id="answers"></div>    
+    </div>
+    <!-- ............................................ -->
+    <div id="endo">
+
+    </div>
+
+    <!-- ......................... -->
+
+    <script src="./Assets/script.js"></script>
 </body>
+
 </html>
