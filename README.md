@@ -1,6 +1,6 @@
 # code-quiz
 
-[LIVE SITE]()
+[LIVE SITE](https://hreichgelt.github.io/code-quiz/)
 
 ## TABLE OF CONTENTS
 
@@ -28,7 +28,7 @@ Instructional Staff for coding bootcamp
 John Titus - Tutor
 
 ## RESOURCES 
-1. [LIVE SITE]()
+1. [LIVE SITE](https://hreichgelt.github.io/code-quiz/)
 
-2. [REPOSITORY]()
+2. [REPOSITORY](https://github.com/Hreichgelt/code-quiz)
 
