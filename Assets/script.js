@@ -43,6 +43,8 @@ var leaderBoard = document.querySelector("#leaders");
 var points = document.querySelector("#score");
 var submit = document.querySelector("#submit");
 var name = document.querySelector("#initials");
+// try putting initials in a different area
+
 var secondsLeft = 50;
 var events = [];
 var increase = 1;
@@ -69,12 +71,20 @@ answers.addEventListener("click", function (event) {
 });
 // changing logic of where render question happens so it doesnt matter if its right or wrong
 // also once we run out of questions the well done game over shows on screen 
+var initials = JSON.parse(localStorage.getItem("initials")) || [];
+initials.push(initials);
+
+localStorage.setItem("initials", JSON.stringify (initials));
+renderQuestions();
+
 function renderQuestions(currentQuest) {
     if (increase === 5) {
         answers.textContent = "Well Done! Game Over";
         points.textContent = secondsLeft
     } else {
     questions.textContent = currentQuest.question;
+    
+        
     // Need to add questions to webpage using create element
     // adding questions to show on HTML
     var questLab = document.createElement("div");

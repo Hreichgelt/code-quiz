@@ -1,27 +1,34 @@
 # code-quiz
 
-// GIVEN I am taking a code quiz
-// WHEN I click the start button
-// THEN a timer starts and I am presented with a question
-// WHEN I answer a question
-// THEN I am presented with another question
-// WHEN I answer a question incorrectly
-// THEN time is subtracted from the clock
-// WHEN all questions are answered or the timer reaches 0
-// THEN the game is over
-// WHEN the game is over
-// THEN I can save my initials and my score
+[LIVE SITE]()
 
-// 1. build a button in html  
-// 2. Create a countdown
-// 3. create prompts 
-// 4. create if statements 
-// 5. create for lopps 
-// 6. style the page with css
+## TABLE OF CONTENTS
 
-// Where everything is - STOP AT LESSON 14
-// timer is in UNC... 09 Timers
-// event listeners - click buttuns are in 11
-// we only go up to lesson 14 so far
+1. [Description](#description)
+2. [Usage](#USAGE)
+3. [Visuals](#visuals)
+4. [Authors Acknowledgments](#authors-and-acknowledgments)
+4. [Resources](#resources)
 
-<!-- going to have 3 screens start page, quiz flow, scores -->
+## DESCRIPTION 
+This is a timed coding quiz. When start is clicked questions will show on the body of the webpage. There will be four possible answers to each question. The user will have 50 seconds.
+If the user selects a wrong answer time will be deducted from the clock. Users will be prompted about the status of each answer (right or wrong).  
+
+
+## USAGE 
+Please read the directions carefully. You will have 50 seconds to answer a series of coding related questions. When you click start quiz, the timer will start running. Questions and possible answers will show towards the body of the page. click on te potential answer you feel is correct. When all of the questions have been answered or the timer reaches zero, you will be prompted that the quiz is over. When that happens, please enter your initials to save into local storage. It will store each games scores so you can track high-scores. 
+
+## VISUALS 
+![Code-Quiz](./Assets/codequiz.png)
+
+
+## AUTHORS AND ACKNOWLEDGMENTS
+Hans Reichgelt
+Instructional Staff for coding bootcamp
+John Titus - Tutor
+
+## RESOURCES 
+1. [LIVE SITE]()
+
+2. [REPOSITORY]()
+
