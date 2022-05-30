@@ -25,13 +25,13 @@
     <!-- ......................................... -->
 
     <div id="timer">
-            Time Remaining:<span id = "clock"> 50 </span>
-            <br><br>
-            <button class="starter" id="start-quiz">Start Quiz</button>
+        Time Remaining:<span id="clock"> 50 </span>
+        <br><br>
+        <button class="starter" id="start-quiz">Start Quiz</button>
     </div>
 
-<br><br>
-<br><br>
+    <br><br>
+    <br><br>
 
     <!-- .............................................. -->
 
@@ -39,28 +39,35 @@
         <!-- high scores instead of scores - create a new page -->
         <!-- enter initials and hit submit it opens new page and local storage keeps scores -->
         <form>
+
             <div>score:<span id="score"></span> 0</div>
             <br><br>
-            <label for="initials"></label>
-            <input type="text" name="name" id="initials" placeholder="initials"/>
+            <label for="fName"></label>
+            <input type="text" name="fName" id="fName" placeholder="name" />
             <button id="submit">Submit</button>
-            <ol id="leaders"><span>
-                Leaders</span>
-            </ol>
+
         </form>
+
+        <table id = "leaders">
+            <tr>
+              <th>Name</th>
+              <th>Score</th>
+            </tr>
+          </table>
+          
     </div>
 
     <!-- .......................................... -->
 
-    <div class ="quizy">
+    <div class="quizy">
         <div id="questions"></div>
 
-        <div id="answers"></div>    
+        <div id="answers"></div>
     </div>
     <!-- ............................................ -->
-    <div id="endo">
+    <div id="end">
 
-    </div>
+    </div> -->
 
     <!-- ......................... -->
 

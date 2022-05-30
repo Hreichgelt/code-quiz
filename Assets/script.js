@@ -33,27 +33,63 @@ const quizQuestions = [
 
 ]
 
+// function displayMode() {
+//   if (mode === 'starter') {
+//     starter.style.display = 'block';
+//     questions.style.display = 'none';
+//     end.style.display = 'none';
+//   }
+//   if (mode === 'quiz') {
+//     starter.style.display = 'none';
+//     questions.style.display = 'block';
+//     end.style.display = 'none';
+//   }
+//   if (mode === 'end') {
+//     start.style.display = 'none';
+//     questions.style.display = 'none';
+//     end.style.display = 'block';
+//   }
+// }
+
+
+// links variables to IDs found in HTML
 var starter = document.querySelector("#start-quiz");
 var questions = document.querySelector("#questions");
-var gameOver = document.querySelector("#endo");
 var countDown = document.querySelector("#clock");
-// changing response to answers for clarity while working 
 var answers = document.querySelector("#answers");
 var leaderBoard = document.querySelector("#leaders");
 var points = document.querySelector("#score");
 var submit = document.querySelector("#submit");
-var name = document.querySelector("#initials");
-// try putting initials in a different area
-
+var fName = document.querySelector("#fName");
+var end = document.querySelector("#end");
 var secondsLeft = 50;
 var events = [];
 var increase = 1;
+var timer;
+
+var scoreList = JSON.parse(localStorage.getItem("storedScores")) || [];;
+
+
+
+function insertScoreIntoLeaderBoard(name, score){
+    var row = leaders.insertRow();
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+    cell1.innerHTML = name;
+    cell2.innerHTML = score;
+
+};
+for (let i = 0; i < scoreList.length; i++) {
+    insertScoreIntoLeaderBoard(scoreList[i].name, scoreList[i].score)
+    
+};
+
 
 // adding event listeners for start of quiz and timer
 starter.addEventListener("click", function () {
     clock();
-    // starting at 
     renderQuestions(quizQuestions[0]);
+    // a way to stop start button from adding multiple of the same questions?
 });
 
 answers.addEventListener("click", function (event) {
@@ -63,29 +99,22 @@ answers.addEventListener("click", function (event) {
     } else {
         answers.textContent = "YUP -- RIGHT";
         console.log(secondsLeft);
-
-
     }
     increase++;
     renderQuestions(quizQuestions[increase])
 });
 // changing logic of where render question happens so it doesnt matter if its right or wrong
 // also once we run out of questions the well done game over shows on screen 
-var initials = JSON.parse(localStorage.getItem("initials")) || [];
-initials.push(initials);
 
-localStorage.setItem("initials", JSON.stringify (initials));
-renderQuestions();
 
 function renderQuestions(currentQuest) {
     if (increase === 5) {
         answers.textContent = "Well Done! Game Over";
         points.textContent = secondsLeft
+        clearInterval(timer)
     } else {
     questions.textContent = currentQuest.question;
     
-        
-    // Need to add questions to webpage using create element
     // adding questions to show on HTML
     var questLab = document.createElement("div");
     var options = document.createElement("ol");
@@ -110,17 +139,11 @@ function renderQuestions(currentQuest) {
     answers.append(options);
 
     }
-
-
-    // create var that creates a button 
-    // in onclick when choosing answer increment to next question 
-    //  if they click the right answer it add points and moves to next screen 
 };
 
-// adding timer function 
-//  double clicked and it doubles in speed
 function clock() {
-    var timer = setInterval(function () {
+     timer = setInterval(function () {
+        console.log(secondsLeft);
         if (secondsLeft > 0) {
             countDown.textContent = secondsLeft;
             secondsLeft--;
@@ -130,31 +153,34 @@ function clock() {
     }, 1000);
 };
 
+submit.addEventListener("click", function (event) {
+    event.preventDefault();
+    if (fName.value === "") {
+        return
+    }
+    storeScore();
+});
 
-// function displayState() {
-//     if (state === "start") {
-//         starter.display = "block";
-//         quizy.display = "none";
-//         endo.display = "none";
-//     }
-// }
-// function displayState() {
-//     if (state === "quiz") {
-//         starter.display = "none";
-//         quizy.display = "block";
-//         endo.display = "none";
-//     }
-//     function displayState() {
-//         if (state === "end") {
-//             starter.display = "none";
-//             quizy.display = "none";
-//             endo.display = "block";
-//         }
-//     }
+function storeScore() {
+    var name = fName.value.trim();
+    var score = points.textContent
+    insertScoreIntoLeaderBoard(name, score);
 
-//     function init() {
-//         displayState();
-//     }
-//     init()
 
-// }
+
+        var storedScores = JSON.parse(localStorage.getItem("storedScores")) || [];
+        storedScores.push({
+            name: name,
+            score: score,
+        });
+        
+        localStorage.setItem("storedScores", JSON.stringify(storedScores));
+        // render();
+    
+    };
+    
+
+
+
+
+
