@@ -1,5 +1,10 @@
 # code-quiz
 
+
+A timed quiz on JavaScript fundamentals that stores high scores
+SO THAT I can gauge my progress compared to my peers
+
+
 [LIVE SITE](https://hreichgelt.github.io/code-quiz/)
 
 ## TABLE OF CONTENTS
